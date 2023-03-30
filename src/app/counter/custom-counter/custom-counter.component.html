@@ -1,0 +1,27 @@
+<div class="mt-5">
+  <div class="mb-3">
+    <p>{{ showMessage$ | async }}</p>
+    <div class="mt-1">
+      <button
+        type="button"
+        (click)="onChangeMsg()"
+        class="btn btn-outline-primary"
+      >
+        Toggle Message
+      </button>
+    </div>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+    <input
+      name="number"
+      ngModel
+      type="number"
+      required
+      placeholder="Enter Value"
+      class="form-control mb-2"
+    />
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+      Add To Counter
+    </button>
+  </form>
+</div>

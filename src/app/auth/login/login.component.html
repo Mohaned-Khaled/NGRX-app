@@ -1,0 +1,67 @@
+<div class="row mt-5">
+  <div class="col-md-6 offset-md-3">
+    <h3>Login</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          class="form-control"
+          formControlName="email"
+        />
+        <div
+          *ngIf="
+            !loginForm.get('email').valid && loginForm.get('email').touched
+          "
+        >
+          <div class="error-msg" *ngIf="loginForm.get('email').errors.required">
+            Email shoud not be empty
+          </div>
+          <div class="error-msg" *ngIf="loginForm.get('email').errors.email">
+            Please enter a valid email
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          formControlName="password"
+        />
+        <div
+          *ngIf="
+            !loginForm.get('password').valid &&
+            loginForm.get('password').touched
+          "
+        >
+          <div
+            class="error-msg"
+            *ngIf="loginForm.get('password').errors.required"
+          >
+            password shoud not be empty
+          </div>
+          <div
+            class="error-msg"
+            *ngIf="loginForm.get('password').errors.minlength"
+          >
+            password at least 6 chars
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
