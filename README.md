@@ -1,6 +1,10 @@
-# Counter2
+# NGRX-Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+
+## Description
+
+This project uses NGRX to manage state, including the use of store and effects. It also uses Firebase to store and fetch data and handle authentication. In addition, interceptors have been implemented to handle HTTP requests, and other features such as loading spinners, item editing, and deletion have also been included.
 
 ## Development server
 
